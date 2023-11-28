@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>宋韵卿裳</title>
+    <meta charset="utf-8"/>
+    </head>
+    <body>
+		<div class="container">
+			<div id="bg">
+				<div id="cover"></div>
+				<img class="bgimg" src="./image/first/bg.jpg"/>
+				<img id="build1" src="./image/building/build1.png"/>;
+			</div>
+		</div>
+    </body>
+    <style>
+        html,body{
+			width:100%;
+			width:100%;
+			margin:0px;
+			padding: 0px;
+		}
+			
+		body{
+			display:flex;
+			flex-direction:colum;
+		}
+		
+		.container{
+			min-width:640px;
+			position: relative;
+			height:100vh;
+			margin:0 auto;
+			text-align:center;
+			overflow:hidden;
+		}
+		#bg{
+			position:relative;
+			margin:auto;
+			width:fit-content;
+			overflow: hidden;
+		}
+		.bgimg{
+			width:100%;
+			height:100%;
+			height:100vh;
+		}
+		#cover{
+			position:absolute;
+			width:100%;
+			height:100%;
+			height:100vh;
+			background-color: gainsboro;
+			animation: change 3s ease;
+			opacity: 0;
+			z-index:3;
+		}
+		
+		@keyframes change{
+			from{
+				opacity: 1;
+			}
+			to{
+				opacity: 0;
+			}
+		}
+		
+		#build1{
+			position:absolute;
+			width:70%;
+			bottom:20%;
+			left:15%;
+			z-index:2;
+		}
+    </style>
+</html>
