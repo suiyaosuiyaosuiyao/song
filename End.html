@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋韵服饰</title>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .bg {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .bgimg {
+            max-width: 100%;
+            max-height: 100%;
+            height: 100vh;
+		}
+
+        .tip{
+            position: absolute;
+            height: 25%;
+            top:22%;
+            right:11%;
+        }
+
+        .save{
+            position: absolute;
+            width: 23%;
+            right:20%;
+        }
+
+        .again{
+            position: absolute;
+            width: 23%;
+            top:53%;
+            right:20%;
+        }
+        
+        .person{
+            position: absolute;
+            height: 90%;
+            top:8%;
+            left:9%;
+        }
+
+        #head{
+            position: absolute;
+            height: 100%;
+            z-index: 4;
+        }
+
+        #shoulder{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #hand{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #fazan{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #guanshi{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #upper{
+            position: absolute;
+            height: 100%;
+            z-index: 3;
+        }
+
+        #moxiong{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #lower{
+            position: absolute;
+            height: 100%;
+            z-index: 1;
+            top:-1%;
+        }
+
+        #ershi{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #pibo{
+            position:relative;
+            height: 100%;
+            left: -21.5%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        .window{
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            z-index: 4;
+        }
+
+        .Frame{
+            display: flex;
+            position: absolute;
+            justify-content: space-around;
+            flex-direction: row;
+            width: 100%;
+            z-index: 4;
+            bottom: 1.5%;
+        }
+
+        .background{
+            width: 27%;
+            margin: 10px 9px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg">
+            <img class="bgimg" src="./material/End/储存页面 背景.jpg">
+            <img class="tip" src="./material/End/储存页面 文字框.png">
+            <img class="save" src="./material/End/按键 保存图片.png" onclick="downloadIamge(".bgimg","./material/End/按键 保存图片.png")">
+            <img class="again" src="./material/End/按键 再来一遍.png">
+
+            <div class="person">
+                <img id="head" src="./material/cloakroom/Hairstyle/hair0.png">
+                <img id="shoulder" src="./material/素材 肩部.png">
+                <img id="hand" src="./material/素材 手部.png">
+                <img id="fazan" src="./material/cloakroom/Jewelry/Fazan/fazan0.png">
+                <img id="guanshi" src="./material/cloakroom/Guanshi/guanshi0.png">
+                <img id="upper" src="./material/cloakroom/Outerwear/Ruyi/ruyi0.png">
+                <img id="moxiong" src="./material/cloakroom/Moxiong/moxiong0.png">
+                <img id="lower" src="./material/cloakroom/Outerwear/Qunzi/qunzi0.png">
+                <img id="ershi" src="./material/cloakroom/Jewelry/Ershi/ershi0.png">
+                <img id="pibo" src="./material/cloakroom/Pibo/pibo0.png">
+            </div>
+
+            <img class="window" src="./material/店铺素材1.png">
+            <div class="Frame">
+                <img class="background" onclick="change(this)" src="./material/Hair/背景 发型店.jpg">
+                <img class="background" onclick="change(this)" src="./material/Clothing stores/服装店 背景.jpg">
+                <img class="background" onclick="change(this)" src="./material/Jewelry stores/背景 首饰店.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function change(a) {
+            var Elements = document.getElementsByClassName("background");
+            var bgimg = document.getElementsByClassName("bgimg")[0];
+            if(a===Elements[0]){
+                bgimg.src = "./material/Hair/背景 发型店.jpg";
+            }else if(a===Elements[1]){
+                bgimg.src = "./material/Clothing stores/服装店 背景.jpg";
+            }else if(a===Elements[2]){
+                bgimg.src = "./material/Jewelry stores/背景 首饰店.jpg";
+            }
+        }
+		function save(){
+			var img = document.getElementsByClassName("bgimg")[0]; // 获取要下载的图片
+			var url = img.src;                            // 获取图片地址
+			var a = document.createElement('a');          // 创建一个a节点插入的document
+			var event = new MouseEvent('click')           // 模拟鼠标click点击事件
+			a.download = 'beautifulGirl'                  // 设置a节点的download属性值
+			a.href = url;                                 // 将图片的src赋值给a节点的href
+			a.dispatchEvent(event) 
+		}
+		
+		function downloadIamge(selector, name) {
+		    // 通过选择器获取img元素，
+		    var img = document.querySelector(selector)
+		    // 将图片的src属性作为URL地址
+		    var url = img.src
+		    var a = document.createElement('a')
+		    a.download = name || 'image'
+		    a.href = url
+		    a.click()
+		}
+
+    </script>
+</body>
+</html>

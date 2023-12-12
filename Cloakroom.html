@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋韵服饰</title>
+    <style>
+        html,body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            position: relative;
+            margin: 0 auto;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .bg {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .bgimg {
+            max-width: 100%;
+            max-height: 100%;
+            height: 100vh;
+		}
+
+        .back{
+            position: absolute;
+            width: 15%;
+            left:0;
+            top:3%;
+        }
+
+        .button{
+            position: absolute;
+            height: 10%;
+            bottom: 12%;
+            left: 30%;
+            z-index: 5;
+        }
+
+        .title{
+            position: absolute;
+            width:100%;
+            z-index: 4;
+            top:30%;
+            animation: slideInOut 5s forwards;
+        }
+
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .person{
+            position: absolute;
+            height: 90%;
+            left: 16%;
+            bottom: 3%;
+        }
+
+        #head{
+            position: absolute;
+            height: 100%;
+            z-index: 4;
+        }
+
+        #shoulder{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #hand{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #fazan{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #guanshi{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #upper{
+            position: absolute;
+            height: 100%;
+            z-index: 3;
+        }
+
+        #moxiong{
+            position: absolute;
+            height: 100%;
+            z-index: 2;
+        }
+
+        #lower{
+            position: absolute;
+            height: 100%;
+            z-index: 1;
+            top:-1%;
+        }
+
+        #ershi{
+            position: absolute;
+            height: 100%;
+            z-index:4;
+            visibility: hidden;
+        }
+
+        #pibo{
+            position:relative;
+            height: 100%;
+            left: -21.5%;
+            z-index:4;
+            visibility: hidden;
+        }
+        
+        .window{
+            position: absolute;
+            background-image: url('./material/cloakroom/右边栏.png');
+            background-size: 100% 100%;
+            width:30%;
+            height: 100%;
+            transition: right 0.3s ease;
+        }
+
+        .category{
+            padding:20px 0px;
+            height: 10%;
+            cursor: pointer;
+        }
+
+        .category>img{
+            width: 75%;
+        }
+
+        .choice{
+            background-image: url('./material/cloakroom/图片底.png');
+            background-origin: content-box ;
+            background-size:100% 100%;
+            background-repeat: no-repeat;
+            padding:20px 0px;
+            height: 14%;
+            cursor: pointer;
+        }
+
+        .choice>img{
+            height:100%;
+        }
+
+        .choice>p{
+            width:100%;
+            background-image: url('./material/cloakroom/文字底.png');
+            background-size:cover;
+            font-family: "方正粗黑宋字体";
+            color: #91493D;
+            margin:0;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #window{
+            right: 0;
+        }
+
+        #window1 {
+            right: -30%;
+        }
+        
+        #window2{
+            right: -30%;
+        }
+
+        #window21{
+            right: -30%;
+        }
+
+        #window22{
+            right: -30%;
+        }
+
+        #window3{
+            right: -30%;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #window3::-webkit-scrollbar{
+            display: none;
+        }
+
+        #window4{
+            right: -30%;
+        }
+
+        #window41{
+            right: -30%;
+        }
+
+        #window42{
+            right: -30%;
+        }
+
+        #window43{
+            right: -30%;
+        }
+
+        #window5{
+            right: -30%;
+        }
+
+        #window6{
+            right: -30%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg">
+            <img class="bgimg" src="./material/cloakroom/背景 衣帽间.jpg">
+            <img class="title" src="./material/cloakroom/衣帽间 标题.png">
+            <img class="back"  onclick="back()" src="./material/素材 返回键.png">
+            <img class="button" onclick="camera()" src="./material/cloakroom/按键 留影.png">
+
+            <div class="person">
+                <img id="head" src="./material/初始 发型.png">
+                <img id="shoulder" src="./material/肩部.png">
+                <img id="hand" src="./material/素材 手部.png">
+                <img id="fazan" src="./material/cloakroom/Jewelry/Fazan/fazan0.png">
+                <img id="guanshi" src="./material/cloakroom/Guanshi/guanshi0.png">
+                <img id="upper" src="./material/素衣.png">
+                <img id="moxiong" src="./material/背心.png">
+                <img id="lower" src="./material/素裙（阴影）.png">
+                <img id="ershi" src="./material/cloakroom/Jewelry/Ershi/ershi0.png">
+                <img id="pibo" src="./material/cloakroom/Pibo/pibo0.png">
+            </div>
+
+            <div id="window" class="window">
+                <div id="Hair"class="category">
+                    <img src="./material/cloakroom/Hairstyle/按键 发型.png">
+                </div>
+                <div id="Jewelry" class="category">
+                    <img src="./material/cloakroom/Jewelry/按键 饰品.png">
+                </div>
+                <div id="Guanshi" class="category">
+                    <img src="./material/cloakroom/Guanshi/按键 冠饰.png">
+                </div>
+                <div id="Outerwear" class="category">
+                    <img src="./material/cloakroom/Outerwear/按键 外衫.png">
+                </div>
+                <div id="Moxiong" class="category">
+                    <img src="./material/cloakroom/Moxiong/按键 抹胸.png">
+                </div>
+                <div id="Pibo" class="category">
+                    <img src="./material/cloakroom/Pibo/按键 披帛.png">
+                </div>
+            </div>
+
+            <div id="window1" class="window">
+                <div class="choice hair" onclick="hair(this)">
+                    <img src="./material/cloakroom/Hairstyle/头饰 双丫髻.png">
+                    <p>双丫髻</p>
+                </div>
+                <div class="choice hair" onclick="hair(this)">
+                    <img src="./material/cloakroom/Hairstyle/头饰 双盘髻.png">
+                    <p>双盘髻</p>
+                </div>
+                <div class="choice hair" onclick="hair(this)">
+                    <img src="./material/cloakroom/Hairstyle/头饰 堕马髻.png">
+                    <p>堕马髻</p>
+                </div>
+                <div class="choice hair" onclick="hair(this)">
+                    <img src="./material/cloakroom/Hairstyle/头饰 朝天髻.png">
+                    <p>朝天髻</p>
+                </div>
+                <div class="choice hair" onclick="hair(this)">
+                    <img src="./material/cloakroom/Hairstyle/头饰 盘龙髻.png">
+                    <p>盘龙髻</p>
+                </div>
+            </div>
+
+            <div id="window2" class="window">
+                <div id="Ershi"class="category">
+                    <img src="./material/cloakroom/Jewelry/Ershi/按键 耳饰.png">
+                </div>
+                <div id="Fazan" class="category">
+                    <img src="./material/cloakroom/Jewelry/Fazan/按键 发簪.png">
+                </div>
+            </div>
+
+            <div id="window21" class="window">
+                <div class="choice ershi" onclick="ershi(this)">
+                    <img src="./material/cloakroom/Jewelry/Ershi/双鬓凤嫋莲花.png">
+                    <p>双鬓凤嫋莲花</p>
+                </div>
+                <div class="choice ershi" onclick="ershi(this)">
+                    <img src="./material/cloakroom/Jewelry/Ershi/宋宫灯形金耳坠.png">
+                    <p>宋宫灯形金耳坠</p>
+                </div>
+                <div class="choice ershi" onclick="ershi(this)">
+                    <img src="./material/cloakroom/Jewelry/Ershi/同心结龟游叠胜耳坠.png">
+                    <p>同心结龟游叠胜耳坠</p>
+                </div>
+                <div class="choice ershi" onclick="ershi(this)">
+                    <img src="./material/cloakroom/Jewelry/Ershi/银鎏金菊花纹耳环.png">
+                    <p>银鎏金菊花纹耳环</p>
+                </div>
+            </div>
+
+            <div id="window22" class="window">
+                <div class="choice fazan" onclick="fazan(this)">
+                    <img src="./material/cloakroom//Jewelry/Fazan/鎏金龙纹银簪.png">
+                    <p>鎏金龙纹银簪</p>
+                </div>
+                <div class="choice fazan" onclick="fazan(this)">
+                    <img src="./material/cloakroom/Jewelry/Fazan/宋鎏金花筒钗.png">
+                    <p>宋鎏金花筒钗</p>
+                </div>
+                <div class="choice fazan" onclick="fazan(this)">
+                    <img src="./material/cloakroom/Jewelry/Fazan/银胆平顶脚簪.png">
+                    <p>银胆平顶脚簪</p>
+                </div>
+                <div class="choice fazan" onclick="fazan(this)">
+                    <img src="./material/cloakroom/Jewelry/Fazan/银鎏金并头花簪.png">
+                    <p>银鎏金并头花簪</p>
+                </div>
+            </div>
+
+            <div id="window3" class="window">
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/过桥髻.png">
+                    <p>过桥髻</p>
+                </div>
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/南宋银发冠.png">
+                    <p>南宋银发冠</p>
+                </div>
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/山口冠.png">
+                    <p>山口冠</p>
+                </div>
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/宣化辽团冠.png">
+                    <p>宣化辽团冠</p>
+                </div>
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/玉兰花团冠.png">
+                    <p>玉兰花团冠</p>
+                </div>
+                <div class="choice guanshi" onclick="guanshi(this)">
+                    <img src="./material/cloakroom/Guanshi/重楼子花冠.png">
+                    <p>重楼子花冠</p>
+                </div>
+            </div>
+
+            <div id="window4" class="window">
+                <div id="Ruyi"class="category">
+                    <img src="./material/cloakroom/Outerwear/Ruyi/按键 襦衣.png">
+                </div>
+                <div id="Beizi" class="category">
+                    <img src="./material/cloakroom/Outerwear/Beizi/按键 褙子.png">
+                </div>
+                <div id="Qunzi" class="category">
+                    <img src="./material/cloakroom/Outerwear/Qunzi/按键 裙子.png">
+                </div>
+            </div>
+
+            <div id="window41" class="window">
+                <div class="choice ruyi" onclick="ruyi(this)">
+                    <img src="./material/cloakroom/Outerwear/Ruyi/襦衣 天水碧.png">
+                    <p>天水碧</p>
+                </div>
+                <div class="choice ruyi" onclick="ruyi(this)">
+                    <img src="./material/cloakroom/Outerwear/Ruyi/襦衣 芸黄.png">
+                    <p>芸黄</p>
+                </div>
+                <div class="choice ruyi" onclick="ruyi(this)">
+                    <img src="./material/cloakroom/Outerwear/Ruyi/襦衣 茜红.png">
+                    <p>茜红</p>
+                </div>
+                <div class="choice ruyi" onclick="ruyi(this)">
+                    <img src="./material/cloakroom/Outerwear/Ruyi/襦衣 青碧.png">
+                    <p>青碧</p>
+                </div>
+            </div>
+
+            <div id="window42" class="window">
+                <div class="choice beizi" onclick="beizi(this)">
+                    <img src="./material/cloakroom/Outerwear/Beizi/褙子 天水碧.png">
+                    <p>天水碧</p>
+                </div>
+                <div class="choice beizi" onclick="beizi(this)">
+                    <img src="./material/cloakroom/Outerwear/Beizi/褙子 芸黄.png">
+                    <p>芸黄</p>
+                </div>
+                <div class="choice beizi" onclick="beizi(this)">
+                    <img src="./material/cloakroom/Outerwear/Beizi/褙子 茜红.png">
+                    <p>茜红</p>
+                </div>
+                <div class="choice beizi" onclick="beizi(this)">
+                    <img src="./material/cloakroom/Outerwear/Beizi/褙子 青碧.png">
+                    <p>青碧</p>
+                </div>
+            </div>
+
+            <div id="window43" class="window">
+                <div class="choice qunzi" onclick="qunzi(this)">
+                    <img src="./material/cloakroom/Outerwear/Qunzi/裙子 赪霞.png">
+                    <p>赪霞</p>
+                </div>
+                <div class="choice qunzi" onclick="qunzi(this)">
+                    <img src="./material/cloakroom/Outerwear/Qunzi/裙子 青碧.png">
+                    <p>青碧</p>
+                </div>
+                <div class="choice qunzi" onclick="qunzi(this)">
+                    <img src="./material/cloakroom/Outerwear/Qunzi/裙子 天水碧.png">
+                    <p>天水碧</p>
+                </div>
+                <div class="choice qunzi" onclick="qunzi(this)">
+                    <img src="./material/cloakroom/Outerwear/Qunzi/裙子 栀子.png">
+                    <p>栀子</p>
+                </div>
+            </div>
+
+            <div id="window5" class="window">
+                <div class="choice moxiong" onclick="moxiong(this)">
+                    <img src="./material/cloakroom/Moxiong/抹胸 粉米.png">
+                    <p>粉米</p>
+                </div>
+                <div class="choice moxiong" onclick="moxiong(this)">
+                    <img src="./material/cloakroom/Moxiong/抹胸 青玉.png">
+                    <p>青玉</p>
+                </div>
+                <div class="choice moxiong" onclick="moxiong(this)">
+                    <img src="./material/cloakroom/Moxiong/抹胸 星郎蓝.png">
+                    <p>星郎蓝</p>
+                </div>
+            </div>
+
+            <div id="window6" class="window">
+                <div class="choice pibo" onclick="pibo(this)">
+                    <img src="./material/cloakroom/Pibo/披帛-沧浪.png">
+                    <p>沧浪</p>
+                </div>
+                <div class="choice pibo" onclick="pibo(this)">
+                    <img src="./material/cloakroom/Pibo/披帛-粉米.png">
+                    <p>粉米</p>
+                </div>
+                <div class="choice pibo" onclick="pibo(this)">
+                    <img src="./material/cloakroom/Pibo/披帛-山矾.png">
+                    <p>山矾</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function back(){
+            window.location.href="main.html";
+        }
+
+        function camera(){
+            window.location.href="end.html";
+        }
+
+
+        $(document).ready(function () {
+            $("#Hair").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window1").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Jewelry").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window2").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Ershi").click(function () {
+                $("#window2").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window21").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Fazan").click(function () {
+                $("#window2").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window22").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Guanshi").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window3").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Outerwear").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window4").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Ruyi").click(function () {
+                $("#window4").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window41").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Beizi").click(function () {
+                $("#window4").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window42").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Qunzi").click(function () {
+                $("#window4").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window43").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Moxiong").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window5").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#Pibo").click(function () {
+                $("#window").css("right", "-30%"); 
+                setTimeout(function(){
+                    $("#window6").css("right", "0"); 
+                }, 500);
+            });
+        });
+
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('.window').length) {
+                var windowElements = document.getElementsByClassName("window");
+                for (var i = 0; i < windowElements.length; i++) {
+                    (function(index) {
+                        var rightValue = windowElements[index].style.right;
+                        if (rightValue === "0px"&&index!=0) {
+                            windowElements[index].style.right = "-30%";
+                            setTimeout(function() {
+                                if (index == 3 || index == 4) {
+                                    windowElements[2].style.right = "0";
+                                } else if (index == 7 || index == 8 || index == 9) {
+                                    windowElements[6].style.right = "0";
+                                } else if(index == 1 || index == 2 || index == 5||index==6|| index == 10||index==11){
+                                    windowElements[0].style.right = "0";
+                                }
+                            }, 500);
+                        }
+                    })(i);
+                }
+            }
+        });
+
+        function hair(a) {
+            var hairElements = document.getElementsByClassName("hair");
+            for (var i = 0; i < hairElements.length; i++) {
+                if(a==hairElements[i]){
+                    document.getElementById("head").src = "./material/cloakroom/Hairstyle/hair" + i + ".png";
+                }
+            }
+        }
+
+        function ershi(a) {
+            var ershiImage = document.getElementById("ershi");
+            if (ershiImage.style.visibility === "visible") {
+                ershiImage.style.visibility = "hidden";
+            } else {
+                var ershiElements = document.getElementsByClassName("ershi");
+                for (var i = 0; i < ershiElements.length; i++) {
+                    if (a === ershiElements[i]) {
+                        ershiImage.style.visibility = "visible";
+                        ershiImage.src = "./material/cloakroom/Jewelry/Ershi/ershi"+i+".png";
+                        break;
+                    }
+                }
+            }
+        }
+
+        function fazan(a) {
+            var fazanElements = document.getElementsByClassName("fazan");
+            var headImage = document.getElementById("head");
+            var src1 = "./material/cloakroom/Hairstyle/hair0.png";
+            var src2 = "./material/cloakroom/Hairstyle/hair3.png";
+            var fazanImage = document.getElementById("fazan");
+            if(headImage.getAttribute("src") === src1 || headImage.getAttribute("src")===src2){
+                fazanImage.style.visibility = "hidden";
+            }else{
+                if (fazanImage.style.visibility === "visible") {
+                    fazanImage.style.visibility = "hidden";
+                }else{
+                    for (var i = 0; i < fazanElements.length; i++) {
+                        if (a ==fazanElements[i]) {
+                            fazanImage.style.visibility = "visible";
+                            fazanImage.src = "./material/cloakroom/Jewelry/Fazan/fazan" + i + ".png";
+                        }
+                    }
+                }
+            }
+        }
+
+        function guanshi(a) {
+            var guanshiElements = document.getElementsByClassName("guanshi");
+            var guanshiImage = document.getElementById("guanshi");
+            if (guanshiImage.style.visibility === "visible") {
+                guanshiImage.style.visibility = "hidden";
+            }else{
+                for (var i = 0; i < guanshiElements.length; i++) {
+                    if(a==guanshiElements[i]){
+                        document.getElementById("guanshi").style.visibility = "visible";
+                        document.getElementById("guanshi").src = "./material/cloakroom/Guanshi/guanshi" + i + ".png";
+                        if(i==4||i==5){
+                            document.getElementById("fazan").style.visibility = "hidden";
+                        }
+                    }
+                }
+            }
+        }
+
+        function ruyi(a) {
+            var ruyiElements = document.getElementsByClassName("ruyi");
+            for (var i = 0; i < ruyiElements.length; i++) {
+                if(a==ruyiElements[i]){
+                    document.getElementById("upper").src = "./material/cloakroom/Outerwear/Ruyi/ruyi" + i + ".png";
+                }
+            }
+        }
+
+        function beizi(a) {
+            var beiziElements = document.getElementsByClassName("beizi");
+            for (var i = 0; i < beiziElements.length; i++) {
+                if(a==beiziElements[i]){
+                    document.getElementById("upper").src = "./material/cloakroom/Outerwear/Beizi/beizi" + i + ".png";
+                }
+            }
+        }
+
+        function qunzi(a) {
+            var qunziElements = document.getElementsByClassName("qunzi");
+            for (var i = 0; i < qunziElements.length; i++) {
+                if(a==qunziElements[i]){
+                    document.getElementById("lower").src = "./material/cloakroom/Outerwear/Qunzi/qunzi" + i + ".png";
+                }
+            }
+        }
+
+        function moxiong(a) {
+            var moxiongElements = document.getElementsByClassName("moxiong");
+            for (var i = 0; i < moxiongElements.length; i++) {
+                if(a==moxiongElements[i]){
+                    document.getElementById("moxiong").src = "./material/cloakroom/Moxiong/moxiong" + i + ".png";
+                }
+            }
+        }
+
+        function pibo(a) {
+            var piboImage = document.getElementById("pibo");
+            if (piboImage.style.visibility === "visible") {
+                piboImage.style.visibility = "hidden";
+            } else {
+                var piboElements = document.getElementsByClassName("pibo");
+                for (var i = 0; i < piboElements.length; i++) {
+                    if (a === piboElements[i]) {
+                        piboImage.style.visibility = "visible";
+                        piboImage.src = "./material/cloakroom/Pibo/pibo" + i + ".png";
+                        break;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

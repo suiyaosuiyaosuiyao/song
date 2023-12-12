@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>宋韵卿裳</title>
+        <meta charset="utf-8"/>
+		<script type="text/javascript">
+			var time = 0;
+			var raf1 = null;
+			var be = 1;
+			var h1 = document.getElementById("bg").offsetHeight;
+			var h2 = document.getElementById("circle").offsetHeight;
+			function movetime(){
+					document.getElementById("text1").style.animationPlayState = "running";
+					document.getElementById("item2").style.animationPlayState = "running";
+					be += 1
+					if (be>4){
+						document.getElementById("num_div").innerText = time+"%";
+						document.getElementById("text_div").innerText = "加载中";
+						time++;
+						if (time>100){
+							window.clearTimeout(raf1);
+							nameout();
+						}
+						else{
+							raf1 = window.setTimeout(movetime,50);
+						}
+						if (time==100){
+							document.getElementById("text_div").innerText = "加载完成";
+						}
+					}
+					else{
+						document.getElementById("num_div").innerText = "";
+						raf1 = window.setTimeout(movetime,1000);
+					}
+			}
+			function nameout(){
+				document.getElementById("name_div").style.display = "block";
+				document.getElementById("num_div").innerText = "";
+				document.getElementById("text_div").innerText = "";
+				document.getElementById("name").style.display = "block";
+				document.getElementById("name").value = "输入姓名";
+				document.getElementById("button").style.display = "block";
+			}
+			
+			function start_name(){
+				document.getElementById("name").value = "";
+			}
+			
+			function enter(){
+				document.getElementById("enter").style.display = "block";
+				document.getElementById("end").style.opacity = "1";
+				document.getElementById("end").style.animationPlayState = "running";
+				document.getElementById("name").style.display = "none";
+				document.getElementById("button").style.display = "none";
+				document.getElementById("name_div").style.display = "none";
+			}
+			
+			function on_button(){
+				document.getElementById("button").style.width = "101%";
+			}
+			
+			function down_button(){
+				document.getElementById("button").style.width = "100%";
+			}
+			
+			function next(){
+				window.location.href="./main.html";
+			}
+
+		</script>
+    </head>
+    <body onload="movetime()">
+		<div class="container">
+			<div id="bg">
+				<img class="bgimg" src="./image/first/bg.jpg"/>
+				<img id="clock" src="./image/first/clock.png"/>
+				<img id="text1" src="./image/first/title.png"/>
+				<img id="text2" src="./image/first/syys.png"/>
+				<img id="center" src="./image/first/center.png"/>
+				<img id="item1" src="./image/first/item.png"/>
+				<img id="item2" src="./image/first/item2.png"/>
+				<img id="end" src="./image/first/end.png"/>
+				<div id="num_div""></div>
+				<div id="text_div"></div>
+				<div id="name_div"></div>
+				<img id="enter" src="./image/first/enter.png" onclick="next()"/>
+				<input type="text" id="name" name="use_name" onclick="start_name()"/>
+				<div id="button"  onclick="enter()">确定</div>
+			</div>
+		</div>
+		
+    </body>
+	
+	<style>
+		html,body{
+			width:100%;
+			width:100%;
+			margin:0px;
+			padding: 0px;
+		}
+			
+		body{
+			display:flex;
+			flex-direction:colum;
+		}
+		
+		.container{
+			min-width:640px;
+			position: relative;
+			height:100vh;
+			margin:0 auto;
+			text-align:center;
+			overflow:hidden;
+		}
+		#bg{
+			position:relative;
+			margin:auto;
+			width:fit-content;
+			overflow: hidden;
+		}
+		.bgimg{
+			width:100%;
+			height:100%;
+			height:100vh;
+		}
+		#clock{
+			position: absolute;
+			height:35%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:26vh;
+			z-index: 1;
+		}
+		#end{
+			position: absolute;
+			height:35%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:26vh;
+			z-index: 4;
+			opacity: 0;
+			animation: end_clock 2.5s ease;
+			animation-play-state: paused;
+		}
+		@keyframes end_clock{
+			0%{
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+		#text1{
+			position: absolute;
+			height:35%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:26vh;
+			z-index: 4;
+			opacity: 0;
+			animation: text1 5s ease;
+			animation-play-state: paused;
+		}
+		
+		@keyframes text1{
+			from{
+				opacity: 1;
+			}
+			to{
+				opacity: 0;
+			}
+		}
+		
+		#text2{
+			position: absolute;
+			height:8%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:42vh;
+			opacity: 1;
+			z-index: 2;
+		}
+		#center{
+			position: absolute;
+			height:35%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:26vh;
+			z-index: 3;
+		}
+		#item1{
+			position: absolute;
+			height:35%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:26vh;
+			z-index: 2;
+			transform-origin:51% 49%;
+		}
+		#item2{
+			position: absolute;
+			height:35%;
+			left:49.3%;
+			top:23.8vh;
+			animation: item 5s linear;
+			animation-play-state: paused;
+			animation-delay: 3s;
+			z-index: 2;
+			transform-origin: 49.5% 55%;
+		}
+		
+		@keyframes item{
+			0%{
+				transform: rotate(0deg);
+			}
+			100%{
+				transform: rotate(-360deg);
+			}
+		}
+		
+		#num_div{
+			position:absolute;
+			text-align: center;
+			width:10%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:60%;
+			font-size:3vh;
+			color:#3c0905;
+			font-family:"Impact";
+		}
+		#text_div{
+			position: absolute;
+			text-align: center;
+			width:16%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:63%;
+			font-size:2vh;
+			z-index: 1;
+			color:#3c0905;
+			font-family:"方正粗黑宋简体;
+		}
+		#name_div{
+			border-radius: 4vh;
+			border:0.3vh solid #3e0903;
+			position: absolute;
+			width:34%;
+			height:3.5%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:59%;
+			display:none;
+			font-family:"方正粗黑宋简体";
+			color:#3e0903;
+			font-size:2vh;
+		}
+		
+		#name{
+			text-align: center;
+			position: absolute;
+			width:28%;
+			height:3.5%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:59%;
+			display:none;
+			font-family:"方正粗黑宋简体";
+			color:#3e0903;
+			font-size:2vh;
+			background-color:rgba(220,38,38,0);
+			border-style:none;
+			display:none;
+			text-align: center;
+			
+		}
+		#enter{
+			position: absolute;
+			top:58%;
+			left:50%;
+			transform: translate(-50%,0);
+			height:6%;
+			display:none;
+		}
+		#button{
+			line-height: 2;
+			border-radius: 4vh;
+			border:0.3vh solid #3e0903;
+			text-align: center;
+			position: absolute;
+			width:18%;
+			height:3.8%;
+			left:50%;
+			transform: translate(-50%,0);
+			top:64%;
+			display:none;
+			font-family:"方正粗黑宋简体";
+			color:#3e0903;
+			font-size:2vh;
+			display:none;
+		}
+	</style>
+	
+</html>

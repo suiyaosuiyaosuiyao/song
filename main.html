@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, initial-scale=1.0">
+    <title>宋韵卿裳街景</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .jj{
+            position: fixed;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width: 420px;
+            height: 100%;
+            border: 1px solid black;
+            overflow: auto;
+        }
+
+        /* 背景部分 */
+        .bg{
+            height: 100vh;
+            max-height: 100%;
+            width: auto;
+            display: flex;
+            position: relative;
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+        .bgtp{
+            height: 100%;
+            top: 0;
+            left: 0;
+            /* width: 62.1%; */
+            /* 2667*4292 */
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* 服装店，第一层 */
+        .fuzhuangdian{
+            height:100vh;
+            max-height: 100%;
+            width: auto;
+            display: flex;
+            position: absolute;
+            left: 0;
+        }
+        .fzd{
+            display: block;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: 10;
+        }
+        .fzdbtn{
+            display: block;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            z-index: 11;
+        }
+        .fzdbtn2{
+            display: block;
+            height: 11%;
+            top: 64.7%;
+            left: 155%;
+            position: relative;
+            z-index: 12;
+            opacity: 0.6;
+        }
+
+        /* 首饰店，第二层 */
+        .shoushidian{
+            height:100vh;
+            max-height: 100%;
+            width: auto;
+            display: flex;
+            position: absolute;
+            right: 0;
+        }
+        .ssd{
+            display: block;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 7;
+        }
+        .ssdbtn{
+            display: block;
+            height: 100%;
+            top: 0;
+            right: 0;
+            position: absolute;
+            z-index: 8;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+        .ssdbtn2{
+            display: block;
+            height: 11%;
+            top: 64.5%;
+            left: 359%;
+            position: relative;
+            z-index: 12;
+            /* z-index: 9; */
+            opacity: 0.6;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+
+        /* 首饰店，第三层 */
+        .faxingdian{
+            height:90%;
+            max-height: 100%;
+            width: auto;
+            
+            left: 10%;
+            display: flex;
+            position: absolute;
+            right: 0;
+        }
+        .fxd{
+            display: block;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 4;
+        }
+        .fxdbtn{
+            display: block;
+            height: 100%;
+            top: 0;
+            right: 0;
+            position: absolute;
+            z-index: 5;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+        .fxdbtn2{
+            display: block;
+            height: 11%;
+            top: 61.5%;
+            left: 111.5%;
+            position: relative;
+            z-index: 12;
+            /* z-index: 6; */
+            opacity: 0.6;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+
+        /* 衣帽间，第四层 */
+        .yimaojian{
+            height:88%;
+            max-height: 100%;
+            width: auto;
+            
+            left: 60%;
+            display: flex;
+            position: absolute;
+            right: 0;
+        }
+        .ymj{
+            display: block;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+        }
+        .ymjbtn{
+            display: block;
+            height: 100%;
+            top: 0;
+            right: 0;
+            position: absolute;
+            z-index: 2;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+        .ymjbtn2{
+            display: block;
+            height: 11%;
+            top: 65.7%;
+            left: 301%;
+            position: relative;
+            z-index: 12;
+            /* z-index: 3; */
+            opacity: 0.6;
+            /* pointer-events: none; */
+            /* filter: brightness(0) saturate(100%) invert(100%); */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="jj">
+        <div class="bg">
+            <img src="./image/街景 背景.jpg" alt="背景" class="bgtp" id="bgtp">
+            <script type="text/javascript">
+                window.addEventListener('load',function(){
+                    var bgtp = document.getElementById('bgtp');//获取图片元素
+                    var bgbox = bgtp.parentNode;//获取盒子元素
+                    var bgtpWidth = bgtp.width;//获取图片宽度
+                    bgbox.style.width=bgtpWidth+'px';
+                });
+            </script>
+    
+            <!-- 服装店部分（第一层） -->
+            <div class="fuzhuangdian"> 
+                <img src="./image/fzd.png" alt="服装店" class="fzd" id="fzd">
+                <img src="./image/jjgbfzd.png" alt="点击" class="fzdbtn">
+                <img src="./image/fzdword.png" alt="服装店" class="fzd">
+                <a href="Clothing stores.html" id="fzdlink">
+                    <img src="./image/jjbtnmin.png" alt="点击" class="fzdbtn2" id="fzdbtn2">
+                </a>
+            </div>
+            <script type="text/javascript">
+                window.addEventListener('load',function(){
+                    var fzdimg = document.getElementById('fzd');//获取图片元素
+                    var fzdbox = fzdimg.parentNode;//获取盒子元素
+                    var fzdWidth = fzdimg.width;//获取图片宽度
+                    fzdbox.style.width=fzdWidth+'px';
+                });
+            </script>
+    
+            <!-- 首饰店部分（第二层） -->
+            <div class="shoushidian">
+                <img src="./image/ssd.png" alt="首饰店" class="ssd" id="ssd">
+                <img src="./image/jjgbssd.png" alt="点击" class="ssdbtn">
+                <img src="./image/ssdword.png" alt="首饰店" class="ssd">
+                <a href="Jewelry stores.html" id="ssdlink">
+                    <img src="./image/jjbtnmin.png" alt="点击" class="ssdbtn2" id="ssdbtn2">
+                </a>
+            </div>
+            <script type="text/javascript">
+                window.addEventListener('load',function(){
+                    var ssdimg = document.getElementById('ssd');//获取图片元素
+                    var ssdbox = ssdimg.parentNode;//获取盒子元素
+                    var ssdWidth = ssdimg.width;//获取图片宽度
+                    ssdbox.style.width=ssdWidth+'px';
+                });
+            </script>
+    
+            <!-- 发型店部分（第三层） -->
+            <div class="faxingdian">
+                <img src="./image/fxd.png" alt="发型店" class="fxd" id="fxd">
+                <img src="./image/jjgbfxd.png" alt="点击" class="fxdbtn">
+                <img src="./image/fxdword.png" alt="发型店" class="fxd">
+                <a href="Hair.html" id="fxdlink">
+                    <img src="./image/jjbtnmin.png" alt="点击" class="fxdbtn2" id="fxdbtn2">
+                </a>
+            </div>
+            <script type="text/javascript">
+                window.addEventListener('load',function(){
+                    var fxdimg = document.getElementById('fxd');//获取图片元素
+                    var fxdbox = fxdimg.parentNode;//获取盒子元素
+                    var fxdWidth = fxdimg.width;//获取图片宽度
+                    fxdbox.style.width=fxdWidth+'px';
+                });
+            </script>
+    
+            <!-- 衣帽间部分（第四层） -->
+            <div class="yimaojian">
+                <img src="./image/ymj.png" alt="衣帽间" class="ymj" id="ymj">
+                <img src="./image/jjgbymj.png" alt="点击" class="ymjbtn">
+                <img src="./image/ymjword.png" alt="衣帽间" class="ymj">
+                <a href="Cloakroom.html" id="ymjlink">
+                    <img src="./image/jjbtnmin.png" alt="点击" class="ymjbtn2" id="ymjbtn2">
+                </a>
+            </div>
+            <script type="text/javascript">
+                window.addEventListener('load',function(){
+                    var ymjimg = document.getElementById('ymj');//获取图片元素
+                    var ymjbox = ymjimg.parentNode;//获取盒子元素
+                    var ymjWidth = ymjimg.width;//获取图片宽度
+                    ymjbox.style.width=ymjWidth+'px';
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>
